@@ -1,0 +1,752 @@
+/* ====== GENERAL STYLES (From First CSS) ====== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+    
+  }
+
+   body {
+    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+    overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+}
+
+  
+/* ========== Headline Section =========== */
+#headline {
+  width: 100%; /* Ensures full width */
+  overflow: hidden; /* Prevents content overflow */
+  white-space: nowrap; /* Prevents wrapping */
+}
+
+.tab1 {
+  text-align: center;
+  background-color: #f4f4f4;
+  color: black;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden; /* Prevents text overflow */
+}
+
+.tab1 span {
+  color: #ef3636;
+}
+
+.tab1:hover {
+  background: linear-gradient(90deg, rgba(234,191,127,1) 0%, rgba(115,114,109,1) 39%);
+  color: white;
+}
+
+/* ========== Marquee Fix =========== */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee-scroll 10s linear infinite;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@keyframes marquee-scroll {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(-100%);
+  }
+}
+  
+
+
+
+
+  /* ========== Product Section =========== */
+#product1 {
+    text-align: center;
+    padding: 40px 5%;
+}
+
+#product1 .pro-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: stretch;
+}
+
+.pro {
+  position: relative;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 6px hsl(36, 72%, 71%) ;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  min-width: 220px;
+  max-width: 250px;
+  flex-direction: column;
+  padding: 15px;
+}
+
+/* ✅ Mobile Sliding Effect */
+@media (max-width: 768px) {
+    .pro-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 15px;
+        padding: 10px;
+        justify-content: flex-start;
+        max-width: 100vw; /* Allow full horizontal scroll */
+    }
+
+    .pro {
+        flex: 0 0 75%;
+        min-width: 220px;
+        scroll-snap-align: start;
+    }
+
+    /* ✅ Hide default scrollbar and add styling */
+    .pro-container::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .pro-container::-webkit-scrollbar-thumb {
+        background: #088178;
+        border-radius: 10px;
+    }
+
+    .pro-container::-webkit-scrollbar-track {
+        background: #e8f6ea;
+    }
+}
+
+
+.pro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ✅ Product Image */
+.pro img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background-color: #f9f9f9;
+}
+
+/* ✅ Discount Badge */
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #f04a4a;
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* ✅ Favorite Icon */
+.favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.favorite-icon:hover {
+    background-color: #fcb900;
+    color: #fff;
+}
+
+/* ✅ Product Info */
+.des {
+    padding: 1rem;
+    text-align: center;
+}
+
+.des span {
+    color: #606063;
+    font-size: 0.9rem;
+}
+
+.des h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.des .star i {
+    font-size: 12px;
+    color: rgb(243, 181, 25);
+}
+
+.des h4 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #088178;
+}
+
+/* ✅ Cart Actions */
+.cart-actions {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ✅ View Details Button */
+.view-details {
+    background-color: #ff7d1a;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.view-details:hover {
+    background-color: #ff914d;
+}
+
+/* ✅ Quantity Buttons */
+.qty-btn {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-btn:hover {
+    background-color: #f3f3f3;
+}
+
+.add-to-cart {
+    background-color: #fcb900;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.add-to-cart:hover {
+    background-color: #fca500;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+
+/* Tablet View (Medium Screens) */
+@media (max-width: 1024px) {
+  #product1 .pro {
+    width: 30%; /* Adjusted to fit better on tablets */
+  }
+}
+
+/* Mobile View - Side Scroll Enabled */
+@media (max-width: 768px) {
+  #product1 {
+    padding: 20px;
+  }
+
+  /* Adjusted Filter Items to Fit */
+  .filter-menu {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .filter-menu .filter-item {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  #product1 .pro-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding: 10px;
+    justify-content: flex-start;
+  }
+
+  .pro {
+    flex: 0 0 75%;
+    min-width: 200px;
+    scroll-snap-align: start;
+  }
+
+  /* Hide default scrollbar and style custom scrollbar */
+  #product1 .pro-container::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  #product1 .pro-container::-webkit-scrollbar-thumb {
+    background: #eabf7f;
+    border-radius: 10px;
+  }
+
+  #product1 .pro-container::-webkit-scrollbar-track {
+    background: #e8f6ea;
+  }
+}
+
+/*  Large Desktop Screens */
+@media (min-width: 1440px) {
+  #product1 .pro-container {
+    max-width: 1400px; /* Centers the product layout better */
+  }
+
+  #product1 .pro {
+    width: 18%; /* Smaller product cards on large screens */
+  }
+}
+
+
+
+
+/* ========== Banner Section =========== */
+#banner1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url(../images/2148182113.jpg);
+  width: 100vw; /* Ensures full viewport width */
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden; /* Prevents background overflow */
+}
+
+#banner1 h4 {
+  color: #fff;
+  font-size: 16px;
+}
+
+#banner1 h2 {
+  color: #fff;
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+#banner1 h2 span {
+  color: #ef3636;
+}
+
+/* ========== Fix Button Alignment & Hover =========== */
+button.normal {
+  color: #000;
+  padding: 15px 30px;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+#banner1 button:hover {
+  background-color: #088178;
+  color: #fff;
+}
+
+
+  
+/* ========== Small Banner Adjustments =========== */
+#sm-banner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10px; /* Adds spacing */
+}
+
+#sm-banner .banner-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  background-image: url(https://i.postimg.cc/vZ6YLxDG/b17.jpg);
+  width: 48%;
+  height: 40vh;
+  background-position: center;
+  background-size: cover;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+#sm-banner .banner-box2 {
+  background-image: url(../images/fast-fashion-vs-slow-sustainable-fashion.jpg);
+}
+
+#sm-banner h4 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+}
+
+#sm-banner h2 {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+#sm-banner span {
+  color: #0e0e0e;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 16px;
+}
+
+button.white {
+  color: #000;
+  padding: 15px 30px;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  outline: none;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+#sm-banner .banner-box:hover button {
+  background-color: #088178;
+  color: #fff;
+  border: 1px solid #088178;
+}
+
+/* ✅ Responsive Fixes */
+@media (max-width: 768px) {
+  #sm-banner .banner-box {
+      width: 100%;
+      height: 30vh;
+  }
+  
+  #sm-banner h2 {
+      font-size: 24px;
+  }
+  
+  #sm-banner h4 {
+      font-size: 18px;
+  }
+  
+  button.white {
+      padding: 10px 20px;
+  }
+}
+
+/* ========== Continue Shopping Button =========== */
+.continue-shopping-container {
+  text-align: center !important;
+  justify-content: center !important;
+  margin: 30px 0;
+}
+
+.btn.continue-shopping {
+  background-color:#b9b8b6 ;
+  color: white;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.btn.continue-shopping:hover {
+  background-color:#eabf7f ;
+}
+
+
+/* ========== Statistics Section =========== */
+.statistics {
+  padding: 6rem 0;
+  background: linear-gradient(
+      to bottom,
+      hsl(36, 72%, 71%)
+  );
+  text-align: center;
+  overflow: hidden;
+}
+
+.statistics .title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 3rem;
+}
+
+/* Centering & Responsive Grid */
+.statistics .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjusted min-width */
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Aesthetic Box Design */
+.statistics .row .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.statistics .row .col:hover {
+  transform: translateY(-5px);
+  background: hsl(36, 72%, 71%);
+}
+
+/* Icons – Reduced Size */
+.statistics .row .col .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px; /* Reduced width */
+  height: 70px; /* Reduced height */
+  font-size: 2.5rem; /* Reduced font size */
+  background: #a1a5a5;
+  color: white;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: 0.3s ease-in-out;
+}
+
+.statistics .row .col:hover .icon {
+  background: #ef3636;
+  transform: rotate(15deg);
+}
+
+/* Typography */
+.statistics .row .col h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.statistics .row .col p {
+  color: #606063;
+  font-size: 0.9rem;
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* ✅ Responsive Fixes */
+@media (max-width: 1024px) {
+  .statistics .row {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .statistics .row {
+      grid-template-columns: 1fr;
+  }
+  
+  .statistics .row .col {
+      min-height: 200px;
+  }
+}
+
+/* ========== Footer Fixes =========== */
+.footer {
+  background-color: rgba(252, 203, 144, 0.15);
+  padding: 5rem 3rem;
+  margin-top: 5rem;
+}
+
+.footer .row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /*Auto adjust */
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer .row .col .logo {
+  margin-bottom: 2.5rem;
+}
+
+.footer .row .col:first-child p {
+  margin-bottom: 2rem;
+  color: #4f5665;
+  font-size: 1.3rem;
+}
+
+.footer .row .col .icons {
+  margin-bottom: 2rem;
+}
+
+/* Reduced Icon Size */
+.footer .row .col .icon {
+  color: var(--white-color);
+  justify-content: center;
+  height: 3.5rem; /* Reduced size */
+  width: 3.5rem; /* Reduced size */
+  font-size: 2rem; /* Reduced font size */
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .row .col .icon:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.footer .row .col:first-child .color {
+  color: var(--primary-color);
+}
+
+/* Grid Fix for Categories */
+.footer .row .col:last-child {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.8rem;
+}
+
+.footer .row .col:last-child div {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .row .col:last-child div a {
+  font-size: 1.3rem;
+  padding: 0.4rem;
+  margin-bottom: 0.7rem;
+  color: #4f5665;
+}
+
+.footer .row .col:last-child h4 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.3rem;
+}
+
+/* ✅ Contact Section */
+.footer .row .col:last-child .d-flex {
+  flex-direction: row;
+  margin-bottom: 1.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer .row .col:last-child .d-flex .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  width: 28px;
+  height: 28px;
+  background: hsl(36, 72%, 71%);
+  color: #fff;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.footer .row .col:last-child .d-flex span {
+  font-size: 1.4rem;
+  color: #4f5665;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .footer .row {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+      padding: 4rem 1.5rem;
+      margin-bottom: 0;
+  }
+
+  .footer .row .col:last-child {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+  }
+}
+
+@media (max-width: 658px) {
+  .footer {
+      margin-bottom: -20px;
+  }
+}
+
+@media (max-width: 3556px) {
+  .footer {
+      margin-bottom: -20px;
+  }
+}

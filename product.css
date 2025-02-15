@@ -1,0 +1,366 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+
+/* MAIN CONTENT */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 40px auto;
+    gap: 50px;
+    justify-content: center;
+}
+
+/* PRODUCT IMAGE GALLERY */
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 450px;
+}
+
+.main-image img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: center;  /* Centers thumbnails horizontally */
+    align-items: center; 
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.thumbnail {
+    width: 60px;              /* Adjust size */
+    height: 60px;
+    cursor: pointer;
+    border: 2px solid transparent; /* Default border */
+    border-radius: 8px;       /* Rounded corners */
+    transition: all 0.3s ease;
+}
+
+.thumbnail-container img {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.thumbnail:hover, 
+.thumbnail.active { 
+    border-color:#eabf7f ;   /* Highlight active thumbnail */
+    transform: scale(1.1);   /* Slight enlargement on hover */
+}
+
+.thumbnail-container img:hover,
+.thumbnail-container img.active {
+    border: 2px solid #eabf7f;
+}
+
+
+/* .thumbnails {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.thumbnails img {
+    width: 90px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.thumbnails img:hover {
+    opacity: 0.6;
+    border: 2px solid #ff7d1a;
+} */
+
+/* PRODUCT DETAILS */
+.product-details {
+    max-width: 450px;
+    padding: 0 20px;
+}
+
+.product-details h2 {
+    color:#eabf7f ;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-details h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.product-details p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.current-price {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.discount {
+    background: #eabf7f;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* SIZE SELECTOR */
+.size-selector {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.size-selector label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.size-options {
+    display: flex;
+    gap: 10px;
+}
+
+.size-option {
+    padding: 8px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.size-option:hover {
+    border-color: #eabf7f;
+    color: #eabf7f;
+}
+
+.size-option.active {
+    border-color: #eabf7f;
+    background: #eabf7f;
+    color: #fff;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .size-selector {
+        align-items: center;
+    }
+
+    .size-options {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* CONTINUE SHOPPING BUTTON */
+.continue-shopping {
+    background: transparent;
+    color: #eabf7f;
+    padding: 12px 20px;
+    border: 2px solid #eabf7f;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.continue-shopping:hover {
+    background: #eabf7f;
+    color: white;
+}
+
+
+/* PURCHASE SECTION */
+.purchase {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    background: #f3f3f3;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.quantity button {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.number {
+    padding: 0 15px;
+    font-size: 16px;
+}
+
+.add-to-cart {
+    background: #eabf7f;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-to-cart:hover {
+    opacity: 0.7;
+}
+
+/* LIGHTBOX */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 500px;
+}
+
+.close {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.lightbox-main-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.lightbox-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.lightbox-thumbnails img {
+    width: 90px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.lightbox-thumbnails img:hover {
+    opacity: 0.6;
+    border: 2px solid #eabf7f;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .product-gallery, .product-details {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .main-image img {
+        width: 100%;
+    }
+
+    .thumbnails {
+        justify-content: center;
+    }
+
+    .thumbnails img {
+        width: 75px;
+    }
+
+    .product-details h1 {
+        font-size: 22px;
+    }
+
+    .current-price {
+        font-size: 20px;
+    }
+
+    .purchase {
+        flex-direction: column;
+        align-items: center;
+    }
+
+   
+}

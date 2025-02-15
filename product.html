@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="product.css">
+     <!-- ====== Favicon ====== -->
+     <link rel="shortcut icon" href="images/White_Simple_Fashion_Logo_20250101_150106_0001-removebg-preview.png" type="image/png" />
+</head>
+<body>
+   
+   
+    <main>
+        <!-- Product Gallery -->
+        <section class="product-gallery">
+            <div class="main-image">
+                <img id="main-product-image" src="" alt="Product Image">
+            </div>
+
+            <div class="thumbnail-container">
+                <!-- Thumbnails will be inserted dynamically -->
+            </div>
+
+        </section>
+
+        <!-- Product Details -->
+        <section class="product-details">
+            <h2 id="product-category">Category</h2> <!-- Category -->
+            <h1 id="product-name">Product Name</h1> <!-- Product Name -->
+            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+            <div class="price">
+                <span id="current-price" class="current-price">$0.00</span>
+                <span id="discount-badge" class="discount">0%</span>
+                <span id="original-price" class="original-price">$0.00</span>
+            </div>
+
+            <!-- Size Selector -->
+            <div class="size-selector">
+                <label for="size">Select Size:</label>
+                <div class="size-options">
+                    <div class="size-option">S</div>
+                    <div class="size-option">M</div>
+                    <div class="size-option">L</div>
+                    <div class="size-option">XL</div>
+                </div>
+            </div>
+            
+            <div class="purchase">
+                <div class="quantity">
+                    <button class="decrease">-</button>
+                    <span class="number">1</span>
+                    <button class="increase">+</button>
+                </div>
+                <button class="add-to-cart">
+                    <img src="images/icon-cart-white.svg" alt="Cart Icon">
+                    Add to cart
+                </button>
+                <button class="continue-shopping">Continue Shopping</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="product.js"></script>
+</body>
+</html>

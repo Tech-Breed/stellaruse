@@ -1,0 +1,210 @@
+/* RESET STYLES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@font-face {
+    font-family: "frankblack_rough";
+    src: url("https://assets.codepen.io/162656/frank-blackrough-webfont.woff2")
+        format("woff2"),
+      url("https://assets.codepen.io/162656/frank-blackrough-webfont.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "frankregular_rough";
+    src: url("https://assets.codepen.io/162656/frank-regularrough-webfont.woff2")
+        format("woff2"),
+      url("https://assets.codepen.io/162656/frank-regularrough-webfont.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "franklight_rough";
+    src: url("https://assets.codepen.io/162656/frank-lightrough-webfont.woff2")
+        format("woff2"),
+      url("https://assets.codepen.io/162656/frank-lightrough-webfont.woff")
+        format("woff");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  :root {
+    --body-bg-color: bisque;
+    --form-submit-text-color: #fff;
+    --form-submit-bg-color: #589fa8;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  button,
+  input {
+    font-family: inherit;
+    font-size: 100%;
+    border: none;
+  }
+  
+  body {
+    display: flex;
+    min-height: 100vh;
+    font: clamp(16px, 2.5vw, 24px) / 1.2 "frankregular_rough";
+    background: var(--body-bg-color);
+  }
+  
+  
+  /* MAIN STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .grid {
+    width: 100%;
+    margin: auto;
+  }
+  
+  .grid .left {
+    max-width: 90%;
+    width: 600px;
+    margin: 20px auto 0;
+  }
+  
+  .grid .left .title {
+    font: clamp(30px, 2.5vw, 50px) / clamp(35px, 2.5vw, 55px) "frankblack_rough";
+    margin-bottom: 40px;
+  }
+  
+  .grid .left .subtitle {
+    margin-bottom: 10px;
+  }
+  
+  .grid .left form {
+    position: relative;
+  }
+  
+  .grid .left input,
+  .grid .left button {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .grid .left input {
+    font-family: "franklight_rough";
+  }
+  
+  .grid .left button {
+    color: var(--form-submit-text-color);
+    background: var(--form-submit-bg-color);
+  }
+  
+  
+  /* LOTTIE PLAYERS STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .arrow {
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+  
+  .under-construction {
+    width: 300px;
+    height: 300px;
+    margin: 20px auto 0;
+  }
+  
+  .twitter {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+  }
+  
+  
+  /* MQ STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  @media (min-width: 768px) {
+    .under-construction {
+      width: 500px;
+      height: 500px;
+    }
+  
+    .twitter {
+      bottom: auto;
+      top: 20px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  
+    .grid .left {
+      padding-left: 20%;
+      margin: 0;
+    }
+  
+    .grid .left {
+      width: auto;
+    }
+  
+    .under-construction {
+      margin: 0 auto;
+    }
+  }
+  
+  @media (min-width: 1500px) {
+    .grid .left {
+      max-width: 80%;
+    }
+  
+    .grid .left input {
+      border-radius: 30px;
+    }
+  
+    .grid .left button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: auto;
+    }
+  }
+  
+  @media (min-width: 1500px) and (min-height: 900px) {
+    .under-construction {
+      width: 700px;
+      height: 700px;
+    }
+  }
+  
+  
+  /* FOOTER STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .page-footer {
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+    display: none;
+    align-items: center;
+    font-size: 1rem;
+    padding: 5px;
+  }
+  
+  .page-footer a {
+    display: flex;
+    margin-left: 4px;
+  }
+  
+  @media (min-width: 768px) {
+    .page-footer {
+      display: flex;
+    }
+  }
