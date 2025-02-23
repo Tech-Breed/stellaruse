@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const screenWidth = window.innerWidth;
     
     if (screenWidth >= 1200) {
-      return wrapper.clientWidth / 4; // ✅ 4 items per row
+      return wrapper.clientWidth / 4; //  4 items per row
     } else if (screenWidth >= 768) {
-      return wrapper.clientWidth / 2; // ✅ 2 items per row
+      return wrapper.clientWidth / 2; //  2 items per row
     } else {
-      return wrapper.clientWidth / 3; // ✅ 3 items per row on small screens
+      return wrapper.clientWidth / 3; //  3 items per row on small screens
     }
   }
 
@@ -89,11 +89,11 @@ document.addEventListener("DOMContentLoaded", function () {
     wrapper.style.transform = `translateX(-${scrollPosition}px)`;
   }
 
-  // ✅ Fix: Add event listeners for Next & Prev buttons
+  //  Fix: Add event listeners for Next & Prev buttons
   nextBtn.addEventListener("click", () => updateScrollPosition("next"));
   prevBtn.addEventListener("click", () => updateScrollPosition("prev"));
 
-  // ✅ Fix: Adjust dynamically when window resizes
+  //  Fix: Adjust dynamically when window resizes
   window.addEventListener("resize", () => {
     scrollPosition = 0; // Reset scroll on resize
     wrapper.style.transform = `translateX(0px)`;
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 "./images/Screenshot 2024-10-30 120456.png"
 
-// ✅ Product Data
+//  Product Data
 const products = {
   tshirts: [
     {
@@ -173,7 +173,7 @@ const products = {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ Script Loaded Successfully");
+    console.log(" Script Loaded Successfully");
 
     const productContainer = document.querySelector("#product1 .pro-container");
     const filterButtons = document.querySelectorAll(".filter-item");
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     console.log("🔍 productContainer found:", productContainer);
 
-    // ✅ Function to create and display a product card
+    //  Function to create and display a product card
     function addProduct(product, index) {
         const productCard = document.createElement("div");
         productCard.classList.add("pro");
@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <h4 class="price">$${product.price.toFixed(2)}</h4>
+                <h4 class="price">₦${product.price.toFixed(2)}</h4>
             </div>
             <div class="cart-actions">
                 <div class="quantity">
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
         productContainer.appendChild(productCard);
         console.log(`✅ Added product: ${product.name}`);
 
-        // ✅ Quantity Update Logic
+        //  Quantity Update Logic
         const qtyValue = productCard.querySelector(".qty-value");
         const priceElement = productCard.querySelector(".price");
         const increaseBtn = productCard.querySelector(".increase");
@@ -229,34 +229,34 @@ document.addEventListener("DOMContentLoaded", function () {
         const unitPrice = product.price;
         let quantity = 1;
 
-        // ✅ Unique Key for Storing Quantity
+        //  Unique Key for Storing Quantity
         const productKey = `qty-${product.name}-${index}`;
 
-        // ✅ Retrieve stored quantity if available
+        //  Retrieve stored quantity if available
         const storedQuantity = sessionStorage.getItem(productKey);
         if (storedQuantity) {
             quantity = parseInt(storedQuantity);
             qtyValue.textContent = quantity;
-            priceElement.textContent = `$${(unitPrice * quantity).toFixed(2)}`;
+            priceElement.textContent = `₦${(unitPrice * quantity).toFixed(2)}`;
         }
 
         increaseBtn.addEventListener("click", () => {
             quantity++;
             qtyValue.textContent = quantity;
-            priceElement.textContent = `$${(unitPrice * quantity).toFixed(2)}`;
-            sessionStorage.setItem(productKey, quantity); // ✅ Store updated quantity
+            priceElement.textContent = `₦${(unitPrice * quantity).toFixed(2)}`;
+            sessionStorage.setItem(productKey, quantity); //  Store updated quantity
         });
 
         decreaseBtn.addEventListener("click", () => {
             if (quantity > 1) {
                 quantity--;
                 qtyValue.textContent = quantity;
-                priceElement.textContent = `$${(unitPrice * quantity).toFixed(2)}`;
-                sessionStorage.setItem(productKey, quantity); // ✅ Store updated quantity
+                priceElement.textContent = `₦${(unitPrice * quantity).toFixed(2)}`;
+                sessionStorage.setItem(productKey, quantity); //  Store updated quantity
             }
         });
 
-        // ✅ Redirect to Product Page when clicking product image
+        //  Redirect to Product Page when clicking product image
         productCard.querySelector(".product-image").addEventListener("click", function () {
             console.log(`📢 Redirecting to product page for: ${product.name}`);
 
@@ -267,14 +267,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 price: product.price,
                 discount: 30,
                 imageGallery: product.imageGallery || [],
-                quantity: quantity // ✅ Pass quantity to product page
+                quantity: quantity //  Pass quantity to product page
             };
 
             sessionStorage.setItem("selectedProduct", JSON.stringify(productData));
             window.location.href = "product.html";
         });
 
-        // ✅ Redirect to Product Page when clicking "View Details"
+        //  Redirect to Product Page when clicking "View Details"
         productCard.querySelector(".view-details").addEventListener("click", function () {
             console.log(`📢 Redirecting to product page for: ${product.name}`);
 
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 price: product.price,
                 discount: 30,
                 imageGallery: product.imageGallery || [],
-                quantity: quantity // ✅ Pass quantity to product page
+                quantity: quantity //  Pass quantity to product page
             };
 
             sessionStorage.setItem("selectedProduct", JSON.stringify(productData));
@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Function to display products based on category
+    //  Function to display products based on category
     function displayProducts(category) {
         productContainer.innerHTML = "";
         console.log(`📢 Displaying products for category: ${category}`);
@@ -305,13 +305,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedProducts.length === 0) {
             console.warn("⚠️ No products found for category:", category);
         } else {
-            console.log(`✅ Found ${selectedProducts.length} products.`);
+            console.log(` Found ${selectedProducts.length} products.`);
         }
 
         selectedProducts.forEach(addProduct);
     }
 
-    // ✅ Add event listeners to filter buttons
+    //  Add event listeners to filter buttons
     filterButtons.forEach((button) => {
         button.addEventListener("click", function () {
             document.querySelector(".filter-item.active")?.classList.remove("active");
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Display all products on page load
+    //  Display all products on page load
     displayProducts("all");
 });
 

@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Matemasie&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    position: relative;
+
+    font-family: "Matemasie", sans-serif;
+}
+
+.coming-soon-wrapper {
+    position: relative;
+}
+
+h1 {
+    font-size: 140px;
+    line-height: 160px;
+    text-shadow: -1px 26px 9px rgba(3, 41, 135,0.6);
+    color: #F3F4F1;
+    text-align: center;
+
+    animation: float 3s linear infinite;
+    animation-direction: alternate;
+    position: relative;
+    top: -60px;
+}
+
+@keyframes float {
+    from { transform: rotate(5deg); }
+    to { transform: rotate(-5deg); }
+}  
+
+.old-link {
+    position: fixed;
+    bottom: 20px;
+    left: calc(50% - 30px);
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #A1F31A;
+    animation: pulse 2s infinite;
+    cursor: pointer;
+}
+.old-link svg {
+    height: 60px;
+    width: auto;
+}
+
+.old-link-icon {
+    position: absolute;
+    bottom: 56px;
+    left: calc(50% - 75px);
+    transform: rotateX(180deg) rotateZ(-80deg);
+}
+.old-link-icon svg {
+    height: 70px;
+}
+
+@keyframes pulse {
+    0% {
+      transform: scale(1, 1);
+    }
+    25% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(1.2, 1.2);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }

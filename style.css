@@ -17,9 +17,10 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif !important;
   background-color: #f8f8f8;
   overflow-x: hidden;
+  cursor: pointer;
 }
 
 h1{
@@ -99,7 +100,7 @@ img {
 
 /* input */
 
-input[type=text] {
+/* input[type=text] {
   width: 130px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -116,7 +117,7 @@ input[type=text] {
 
 input[type=text]:focus {
   width: 100%;
-}
+} */
 
 
 /* ========== Custom Classes =========== */
@@ -194,6 +195,7 @@ input[type=text]:focus {
 }
 .header .navbar .row .icons .icon:hover {
   background-color: #f4f4f4;
+  
 }
 .header .hamburger,
 .header .close {
@@ -347,7 +349,7 @@ input::placeholder { font: inherit; }
 
 
 
-/* ✅ Fixed Desktop Spacing */
+/* Fixed Desktop Spacing */
 .hero-carousel-item .text-content {
   width: 42%;
   padding-left: 4%;
@@ -661,7 +663,7 @@ input::placeholder { font: inherit; }
     flex: 0 0 50%;
   }
 }
-
+/* category ends */
 
 
 
@@ -721,6 +723,9 @@ input::placeholder { font: inherit; }
   width: 100%;
   background-color: #eabf7f !important;
 }
+/* section styling ends */
+
+
 
 /* Product Container - Proper Alignment */
 #product1 .pro-container {
@@ -778,7 +783,7 @@ input::placeholder { font: inherit; }
 }
 
 /* Favorite Icon */
-.favorite-icon {
+/* .favorite-icon {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -796,7 +801,7 @@ input::placeholder { font: inherit; }
   transition: all 0.3s ease;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   z-index: 1;
-}
+} */
 
 .favorite-icon:hover {
   background-color: #eabf7f !important;
@@ -851,7 +856,7 @@ input::placeholder { font: inherit; }
 .qty-btn:hover {
   background-color: #f3f3f3;
 }
-
+/* 
 .add-to-cart {
   background-color: #eabf7f;
   color: white;
@@ -860,7 +865,7 @@ input::placeholder { font: inherit; }
   border-radius: 4px;
   cursor: pointer;
   font-size: 1.3rem;
-}
+} */
 
 .add-to-cart:hover {
   background-color: #fca500;
@@ -1000,6 +1005,8 @@ button.normal{
 }
 
 /* ========== Banner end =========== */
+
+
 
 
 /* ====== RESPONSIVE DESIGN ====== */

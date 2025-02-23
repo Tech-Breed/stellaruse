@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
     <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="cart.css">
+    <!-- Add FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
      <!-- ====== Favicon ====== -->
      <link rel="shortcut icon" href="images/White_Simple_Fashion_Logo_20250101_150106_0001-removebg-preview.png" type="image/png" />
 </head>
 <body>
-   
+    <div id="custom-popup" class="popup">
+        <div class="popup-content">
+            <p id="popup-message">✅ Added to cart successfully!</p>
+            <button id="popup-ok">OK</button>
+        </div>
+    </div>
    
     <main>
         <!-- Product Gallery -->
@@ -28,7 +36,7 @@
         <section class="product-details">
             <h2 id="product-category">Category</h2> <!-- Category -->
             <h1 id="product-name">Product Name</h1> <!-- Product Name -->
-            <p>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+            <p>These high-profile crochet wears are your perfect wears companion. Featuring a Luxury feeling to fit your personality, they’ll withstand everything the weather can offer.</p>
             <div class="price">
                 <span id="current-price" class="current-price">$0.00</span>
                 <span id="discount-badge" class="discount">0%</span>
@@ -53,15 +61,22 @@
                     <button class="increase">+</button>
                 </div>
                 <button class="add-to-cart">
-                    <img src="images/icon-cart-white.svg" alt="Cart Icon">
-                    Add to cart
+                    <i class="fas fa-shopping-cart cart-icon"></i> Add to cart
                 </button>
-                <button class="continue-shopping">Continue Shopping</button>
+                <a href="index.html">
+                    <button class="continue-shopping">Continue Shopping</button>
+                </a>
             </div>
         </section>
     </main>
 
+    <a href="cart.html" class="cart-btn">
+        <i class="fas fa-shopping-cart cart-icon"></i>
+        <span id="cart-count" class="cart-count">0</span>
+    </a>
+    
     <script src="script.js"></script>
     <script src="product.js"></script>
+    <script src="cart.js"></script>
 </body>
 </html>

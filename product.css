@@ -81,6 +81,9 @@ main {
     border: 2px solid #eabf7f;
 }
 
+a{
+    text-decoration: none;
+}
 
 /* .thumbnails {
     display: flex;
@@ -363,4 +366,93 @@ main {
     }
 
    
+}
+
+
+/* Cart Button Styling */
+.cart-btn {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Cart Icon */
+.cart-icon {
+    width: 35px; /* Adjust size as needed */
+    height: auto;
+    filter: brightness(0) invert(1); /* Makes it white for dark themes */
+}
+
+/* Cart Count Badge */
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    min-width: 22px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+/* Animate Badge when Item is Added */
+.cart-count.bump {
+    transform: scale(1.2);
+}
+
+
+
+/* Popup Modal Styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+}
+
+.popup-content p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#popup-ok {
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#popup-ok:hover {
+    background: #218838;
 }
