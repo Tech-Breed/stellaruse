@@ -4,10 +4,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const productData = JSON.parse(sessionStorage.getItem("selectedProduct"));
 
     if (!productData) {
-        console.error("❌ No product data found! Redirecting to home.");
-        window.location.href = "index.html";
+        console.error("❌ No product data found!");
+    
+        // ✅ Prevent infinite redirect loop
+        if (!window.location.href.includes("index.html")) {
+            window.location.href = "index.html";
+        }
+        
         return;
     }
+    
 
     console.log("📢 Loaded Product:", productData);
 
