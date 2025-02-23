@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="item-info">
                     <p class="item-name">${item.name} (${item.size})</p>
-                    <p class="item-price">₦${(item.price * item.quantity).toFixed(2)}</p>
+                    <p class="item-price">$${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
                 <div class="quantity-controls">
                     <button class="quantity-btn decrease" data-index="${index}">-</button>
@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cartCount.textContent = totalItems;
         totalItemsDisplay.textContent = totalItems;
-        totalPriceDisplay.textContent = `₦${totalPrice.toFixed(2)}`;
+        totalPriceDisplay.textContent = `$${totalPrice.toFixed(2)}`;
 
-        updateCartCount(); // Ensure cart count updates everywhere
+        updateCartCount(); // ✅ Ensure cart count updates everywhere
     }
 
     function updateSessionStorage() {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cartItemsContainer.addEventListener("click", function (e) {
         const index = e.target.dataset.index;
 
-        if (!cart[index]) return; // Prevents errors when modifying removed items
+        if (!cart[index]) return; // ✅ Prevents errors when modifying removed items
 
         if (e.target.classList.contains("increase")) {
             cart[index].quantity++;
@@ -87,10 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     updateCartDisplay();
-    updateCartCount(); // Update cart count on page load
+    updateCartCount(); // ✅ Update cart count on page load
 });
 
-//  Ensure function is available globally
+// ✅ Ensure function is available globally
 window.updateCartCount = function () {
     const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -100,4 +100,5 @@ window.updateCartCount = function () {
         cartCount.textContent = totalItems;
     }
 };
+
 

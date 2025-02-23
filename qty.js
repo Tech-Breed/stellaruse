@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productImage.src = imageUrl;
 
         // ✅ Get Base Price
-        let basePrice = parseFloat(card.dataset.price) || parseFloat(priceElement.textContent.replace("₦", ""));
+        let basePrice = parseFloat(card.dataset.price) || parseFloat(priceElement.textContent.replace("$", ""));
         let quantity = 1; // Default quantity
 
         // ✅ Unique Key for Each Product Instance
@@ -27,14 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (storedQuantity) {
             quantity = parseInt(storedQuantity);
             qtyValue.textContent = quantity;
-            priceElement.textContent = `₦${(basePrice * quantity).toFixed(2)}`;
+            priceElement.textContent = `$${(basePrice * quantity).toFixed(2)}`;
         }
 
         // ✅ Increase Quantity
         increaseBtn.addEventListener("click", () => {
             quantity++;
             qtyValue.textContent = quantity;
-            priceElement.textContent = `₦${(basePrice * quantity).toFixed(2)}`;
+            priceElement.textContent = `$${(basePrice * quantity).toFixed(2)}`;
             sessionStorage.setItem(productKey, quantity);
         });
 
@@ -43,14 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
             if (quantity > 1) {
                 quantity--;
                 qtyValue.textContent = quantity;
-                priceElement.textContent = `₦${(basePrice * quantity).toFixed(2)}`;
+                priceElement.textContent = `$${(basePrice * quantity).toFixed(2)}`;
                 sessionStorage.setItem(productKey, quantity);
             }
         });
     });
 });
 
-//  Handle View Details Click
+// ✅ Handle View Details Click
 document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Shirt Page Loaded");
 
@@ -71,24 +71,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error("❌ Error parsing thumbnails:", error);
             }
 
-            //  Retrieve Quantity Before Sending to Product Page
+            // ✅ Retrieve Quantity Before Sending to Product Page
             const productKey = `qty-${card.dataset.name}-${index}`;
             let quantity = parseInt(sessionStorage.getItem(productKey)) || 1;
 
             const productData = {
-                image: card.dataset.image || "https://via.placeholder.com/200", //  Ensure image exists
+                image: card.dataset.image || "https://via.placeholder.com/200", // ✅ Ensure image exists
                 category: card.dataset.category,
                 name: card.dataset.name,
                 price: parseFloat(card.dataset.price),
                 discount: parseInt(card.querySelector(".discount-badge")?.textContent.replace('%', '').replace('-', '')) || 0,
-                imageGallery: thumbnails.length > 0 ? thumbnails : ["https://via.placeholder.com/201"], //  Ensure thumbnails exist
-                quantity: quantity //  Pass quantity to product page
+                imageGallery: thumbnails.length > 0 ? thumbnails : ["https://via.placeholder.com/201"], // ✅ Ensure thumbnails exist
+                quantity: quantity // ✅ Pass quantity to product page
             };
 
-            //  Store in sessionStorage
+            // ✅ Store in sessionStorage
             sessionStorage.setItem("selectedProduct", JSON.stringify(productData));
 
-            //  Redirect to product page
+            // ✅ Redirect to product page
             window.location.href = "product.html";
         });
     });
