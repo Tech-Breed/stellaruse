@@ -12,6 +12,12 @@
   font-family: 'Kumbh Sans', sans-serif;
 }
 
+/* ✅ Fix the blue flash on mobile */
+* {
+  -webkit-tap-highlight-color: transparent; /* Remove highlight on tap */
+}
+
+
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;

@@ -3,17 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const productData = JSON.parse(sessionStorage.getItem("selectedProduct"));
 
-if (!productData) {
-    console.error("❌ No product data found!");
+    if (!productData) {
+        console.error("❌ No product data found!");
 
-    // ✅ Fix: Redirect only if NOT already on index.html
-    if (!window.location.pathname.includes("index.html")) {
-        window.location.href = "index.html";
+        // ✅ Fix: Redirect only if NOT already on index.html
+        if (!window.location.pathname.includes("index.html")) {
+            window.location.href = "index.html";
+        }
+
+        return;
     }
-    
-    return;
-}
-
 
     console.log("📢 Loaded Product:", productData);
 
@@ -106,39 +105,43 @@ if (!productData) {
         });
     }
 
-    // ✅ Add to Cart Functionality
+    // ✅ Add to Cart Functionality (Updated)
     document.querySelector(".add-to-cart").addEventListener("click", function () {
         const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
-    
-        // ✅ Ensure productData is used inside event listener
+
+        // ✅ Get the product details again
         const currentProductData = JSON.parse(sessionStorage.getItem("selectedProduct"));
 
         const cartItem = {
-            id: currentProductData.id, // Ensure unique identification
+            id: currentProductData.id, // ✅ Ensure unique identification
             name: currentProductData.name,
             category: currentProductData.category,
-            image: currentProductData.image, // Only main image
+            image: currentProductData.image, // ✅ Only main image
             price: currentProductData.price,
-            quantity: quantity,
-            size: selectedSize || "M", // Default to "M" if no size selected
-            description: "Luxury crafted sneakers for daily wear.",
+            quantity: quantity, // ✅ User-selected quantity
+            size: selectedSize || "M", // ✅ Default to "M" if no size selected
+            description: currentProductData.description || "Luxury crafted sneakers for daily wear.",
         };
-    
-        // Check if item already exists in cart
+
+        // ✅ Check if an item with the same ID **AND** size already exists
         const existingItemIndex = cartItems.findIndex(item => item.id === cartItem.id && item.size === cartItem.size);
+
         if (existingItemIndex !== -1) {
+            // ✅ If product with the same size already exists, update quantity
             cartItems[existingItemIndex].quantity += quantity;
         } else {
+            // ✅ If it's a new product (or same product with different size), add it as new
             cartItems.push(cartItem);
         }
-    
-        sessionStorage.setItem("cart", JSON.stringify(cartItems));
-    
-        // ✅ Show Custom Popup
-        showPopup("✅ Added to cart successfully!");
 
-        // ✅ Update Cart Count Immediately with Animation
+        // ✅ Update sessionStorage
+        sessionStorage.setItem("cart", JSON.stringify(cartItems));
+
+        // ✅ Update Cart Count Immediately
         updateCartCount();
+
+        console.log("🛒 Product added to cart:", cartItem);
+        showPopup("✅ Added to cart successfully!");
     });
 
     // ✅ Function to Show Custom Popup
@@ -171,4 +174,3 @@ if (!productData) {
     // ✅ Update Cart Count on Page Load
     updateCartCount();
 });
-

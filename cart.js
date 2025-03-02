@@ -9,13 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
     function updateCartDisplay() {
-        cartItemsContainer.innerHTML = "";
+        cartItemsContainer.innerHTML = ""; // ✅ Clear previous cart items
         let totalItems = 0;
         let totalPrice = 0;
 
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-            cartCount.textContent = "0";
+            updateCartCount(); // ✅ Ensure cart count resets when cart is empty
             totalItemsDisplay.textContent = "0";
             totalPriceDisplay.textContent = "$0.00";
             return;
@@ -45,11 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
             cartItemsContainer.appendChild(cartItem);
         });
 
-        cartCount.textContent = totalItems;
         totalItemsDisplay.textContent = totalItems;
         totalPriceDisplay.textContent = `$${totalPrice.toFixed(2)}`;
-
-        updateCartCount(); // ✅ Ensure cart count updates everywhere
+        updateCartCount();
     }
 
     function updateSessionStorage() {
@@ -60,11 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateCartCount() {
         const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
         const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-        cartCount.textContent = totalItems;
+
+        // ✅ Update all cart count elements, including those in the navbar
+        document.querySelectorAll("#cart-count, .cart-count").forEach(el => {
+            el.textContent = totalItems;
+        });
 
         // ✅ Add animation when cart count updates
-        cartCount.classList.add("bump");
-        setTimeout(() => cartCount.classList.remove("bump"), 300);
+        if (cartCount) {
+            cartCount.classList.add("bump");
+            setTimeout(() => cartCount.classList.remove("bump"), 300);
+        }
     }
 
     cartItemsContainer.addEventListener("click", function (e) {
@@ -94,11 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
 window.updateCartCount = function () {
     const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-    const cartCount = document.getElementById("cart-count");
 
-    if (cartCount) {
-        cartCount.textContent = totalItems;
-    }
+    // ✅ Update all cart count elements, including those in the navbar
+    document.querySelectorAll("#cart-count, .cart-count").forEach(el => {
+        el.textContent = totalItems;
+    });
 };
 
 
