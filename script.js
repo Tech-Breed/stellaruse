@@ -44,7 +44,12 @@ function goToHeroPrevSlide() {
 }
 
 // Auto Slide Every 10 Seconds
-setInterval(goToHeroNextSlide, 10000);
+try {
+  setInterval(goToHeroNextSlide, 10000);
+} catch (error) {
+  console.error("❌ Carousel error:", error);
+}
+
 
 // Event Listeners for Navigation
 heroNextBtn.addEventListener('click', goToHeroNextSlide);

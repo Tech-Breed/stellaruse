@@ -3,11 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const productData = JSON.parse(sessionStorage.getItem("selectedProduct"));
 
-    if (!productData) {
-        console.error("❌ No product data found! Redirecting to home.");
+if (!productData) {
+    console.error("❌ No product data found!");
+
+    // ✅ Fix: Redirect only if NOT already on index.html
+    if (!window.location.pathname.includes("index.html")) {
         window.location.href = "index.html";
-        return;
     }
+    
+    return;
+}
+
 
     console.log("📢 Loaded Product:", productData);
 
