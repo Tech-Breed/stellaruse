@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
             updateCartCount(); // ✅ Ensure cart count resets when cart is empty
             totalItemsDisplay.textContent = "0";
-            totalPriceDisplay.textContent = "$0.00";
+            totalPriceDisplay.textContent = "₦0.00";
             return;
         }
 
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <img src="${item.image}" alt="${item.name}">
                 <div class="item-info">
                     <p class="item-name">${item.name} (${item.size})</p>
-                    <p class="item-price">$${(item.price * item.quantity).toFixed(2)}</p>
+                    <p class="item-price">₦${(item.price * item.quantity).toFixed(2)}</p>
                 </div>
                 <div class="quantity-controls">
                     <button class="quantity-btn decrease" data-index="${index}">-</button>
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         totalItemsDisplay.textContent = totalItems;
-        totalPriceDisplay.textContent = `$${totalPrice.toFixed(2)}`;
+        totalPriceDisplay.textContent = `₦${totalPrice.toFixed(2)}`;
         updateCartCount();
     }
 

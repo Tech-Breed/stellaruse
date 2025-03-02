@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
     mainImage.src = productData.image;
     document.getElementById("product-category").textContent = productData.category;
     document.getElementById("product-name").textContent = productData.name;
-    document.getElementById("current-price").textContent = `$${productData.price.toFixed(2)}`;
+    document.getElementById("current-price").textContent = `₦${productData.price.toFixed(2)}`;
     document.getElementById("discount-badge").textContent = `-${productData.discount}%`;
 
     // ✅ Calculate Original Price
     const originalPrice = (productData.price / (1 - productData.discount / 100)).toFixed(2);
-    document.getElementById("original-price").textContent = `$${originalPrice}`;
+    document.getElementById("original-price").textContent = `₦${originalPrice}`;
 
     console.log("✅ Product Details Updated Successfully");
 
@@ -59,19 +59,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentPrice = document.getElementById("current-price");
 
     quantityDisplay.textContent = quantity;
-    currentPrice.textContent = `$${(productData.price * quantity).toFixed(2)}`;
+    currentPrice.textContent = `₦${(productData.price * quantity).toFixed(2)}`;
 
     increaseBtn.addEventListener("click", () => {
         quantity++;
         quantityDisplay.textContent = quantity;
-        currentPrice.textContent = `$${(productData.price * quantity).toFixed(2)}`;
+        currentPrice.textContent = `₦${(productData.price * quantity).toFixed(2)}`;
     });
 
     decreaseBtn.addEventListener("click", () => {
         if (quantity > 1) {
             quantity--;
             quantityDisplay.textContent = quantity;
-            currentPrice.textContent = `$${(productData.price * quantity).toFixed(2)}`;
+            currentPrice.textContent = `₦${(productData.price * quantity).toFixed(2)}`;
         }
     });
 

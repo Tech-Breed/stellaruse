@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productImage.src = imageUrl;
 
         // ✅ Get Base Price
-        let basePrice = parseFloat(card.dataset.price) || parseFloat(priceElement.textContent.replace("$", ""));
+        let basePrice = parseFloat(card.dataset.price) || parseFloat(priceElement.textContent.replace("₦", ""));
         let quantity = 1; // Default quantity
 
         // ✅ Unique Key for Each Product Instance
@@ -27,14 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (storedQuantity) {
             quantity = parseInt(storedQuantity);
             qtyValue.textContent = quantity;
-            priceElement.textContent = `$${(basePrice * quantity).toFixed(2)}`;
+            priceElement.textContent = `₦${(basePrice * quantity).toFixed(2)}`;
         }
 
         // ✅ Increase Quantity
         increaseBtn.addEventListener("click", () => {
             quantity++;
             qtyValue.textContent = quantity;
-            priceElement.textContent = `$${(basePrice * quantity).toFixed(2)}`;
+            priceElement.textContent = `₦${(basePrice * quantity).toFixed(2)}`;
             sessionStorage.setItem(productKey, quantity);
         });
 
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (quantity > 1) {
                 quantity--;
                 qtyValue.textContent = quantity;
-                priceElement.textContent = `$${(basePrice * quantity).toFixed(2)}`;
+                priceElement.textContent = `₦${(basePrice * quantity).toFixed(2)}`;
                 sessionStorage.setItem(productKey, quantity);
             }
         });

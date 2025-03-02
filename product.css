@@ -8,11 +8,9 @@
     font-family: 'Kumbh Sans', sans-serif;
 }
 
-/* ✅ Fix the blue flash on mobile */
 * {
     -webkit-tap-highlight-color: transparent; /* Remove highlight on tap */
 }
-
 
 body {
     display: flex;
@@ -386,14 +384,16 @@ a{
 .cart-icon {
     width: 35px; /* Adjust size as needed */
     height: auto;
-    filter: brightness(0) invert(1); /* Makes it white for dark themes */
+    /* filter: brightness(0) invert(1);  */
+    /* Makes it white for dark themes */
+    color: white;
 }
 
 /* Cart Count Badge */
 .cart-count {
     position: absolute;
     top: -5px;
-    right: -10px;
+    right: -15px;
     background: red;
     color: white;
     font-size: 14px;

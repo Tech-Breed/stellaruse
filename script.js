@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <h4 class="price">$${product.price.toFixed(2)}</h4>
+                <h4 class="price">₦${product.price.toFixed(2)}</h4>
             </div>
             <div class="cart-actions">
                 <div class="quantity">
@@ -242,13 +242,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (storedQuantity) {
             quantity = parseInt(storedQuantity);
             qtyValue.textContent = quantity;
-            priceElement.textContent = `$${(unitPrice * quantity).toFixed(2)}`;
+            priceElement.textContent = `₦${(unitPrice * quantity).toFixed(2)}`;
         }
 
         increaseBtn.addEventListener("click", () => {
             quantity++;
             qtyValue.textContent = quantity;
-            priceElement.textContent = `$${(unitPrice * quantity).toFixed(2)}`;
+            priceElement.textContent = `₦${(unitPrice * quantity).toFixed(2)}`;
             sessionStorage.setItem(productKey, quantity); // ✅ Store updated quantity
         });
 
@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (quantity > 1) {
                 quantity--;
                 qtyValue.textContent = quantity;
-                priceElement.textContent = `$${(unitPrice * quantity).toFixed(2)}`;
+                priceElement.textContent = `₦${(unitPrice * quantity).toFixed(2)}`;
                 sessionStorage.setItem(productKey, quantity); // ✅ Store updated quantity
             }
         });
