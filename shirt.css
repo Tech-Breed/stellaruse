@@ -7,7 +7,7 @@
     
   }
 
-  /* ✅ Fix the blue flash on mobile */
+  /*  Fix the blue flash on mobile */
 * {
   -webkit-tap-highlight-color: transparent; /* Remove highlight on tap */
 }
@@ -19,7 +19,7 @@
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
     font-family: 'Kumbh Sans', sans-serif;
-    overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+    overflow-x: hidden; /*  Prevent horizontal scroll */
 }
 
   

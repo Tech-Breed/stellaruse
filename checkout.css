@@ -1,0 +1,234 @@
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+nav {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-wrapper {
+   
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Page Container */
+#checkout-container {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* Cart Item Styling */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.cart-details {
+    flex-grow: 1;
+}
+
+.edit-name {
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    width: 100%;
+}
+
+.edit-name:focus {
+    border-bottom: 2px solid #eabf7f !important;
+    outline: none;
+}
+
+.edit-quantity {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.quantity-controls button {
+    background: #eabf7f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.quantity-controls button:hover {
+    background: #eabf7f !important;
+    transform: scale(1.1);
+}
+
+
+/* Card Styling */
+.card {
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-content h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #eabf7f !important;
+}
+
+/* Order List */
+#order-list {
+    list-style: none;
+    padding: 0;
+}
+
+.collection-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.collection-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+/* ✅ Quantity Controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.quantity-controls button {
+    border: none;
+    background: #eabf7f!important;
+    color: white;
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+.quantity-controls button:hover {
+    background: #3949ab;
+    transform: scale(1.1);
+}
+
+/* Shipping Selection */
+.input-field select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border 0.3s;
+}
+
+.input-field select:focus {
+    border: 1px solid #eabf7f!important;
+    outline: none;
+}
+
+/* Fix for Shipping Section Spacing */
+#shipping-options {
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Billing Info */
+#billing-address {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Input Fields */
+.input-field input {
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+.input-field input:focus {
+    border-bottom: 2px solid #eabf7f !important;
+    outline: none;
+}
+
+/* ✅ Submit Button */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    background: #eabf7f !important;
+    color: white;
+    font-size: 16px;
+    padding: 2px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    margin-top: 15px;
+    text-align: center;
+}
+
+button[type="submit"]:hover {
+    background: #3949ab;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .collection-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .quantity-controls {
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+}

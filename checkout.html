@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="checkout.css">
+    
+    <!-- ====== Favicon ====== -->
+    <link rel="shortcut icon" href="images/White_Simple_Fashion_Logo_20250101_150106_0001-removebg-preview.png" type="image/png" />
+
+    <!-- Material Icons & Materialize CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+
+<!-- Checkout Page -->
+<div id="checkout-container">
+    <nav class="indigo darken-4">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Checkout <i class="material-icons">shopping_cart</i></a>
+        </div>
+    </nav>
+
+    <div class="container wrapper">
+        <div class="row">
+            <!-- Order Summary -->
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <h5>Order Summary</h5>
+                        <ul id="order-list" class="collection"></ul>
+                        
+                        <!-- Dynamic Shipping Options -->
+                        <div class="input-field">
+                            <select id="shipping-options">
+                                <option value="0" selected>Standard Shipping - ₦0</option>
+                                <option value="1500">Express Shipping - ₦1500</option>
+                                <option value="3000">Premium Shipping - ₦3000</option>
+                            </select>
+                            <label>Choose Shipping Method</label>
+                        </div>
+                        
+                        <p><b>Shipping:</b> ₦<span id="shipping-price">0</span></p>
+                        <p><b>Total:</b> ₦<span id="total-price">0</span></p>
+                        
+                        <!-- Live Billing Info Update -->
+                        <h6><b>Billing Address:</b></h6>
+                        <p><b>Name:</b> <span id="billing-name">N/A</span></p>
+                        <p><b>Email:</b> <span id="billing-email">N/A</span></p>
+                        <p><b>Address:</b> <span id="billing-address">N/A</span></p>
+                        <p><b>Phone:</b> <span id="billing-phone">N/A</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Billing Information -->
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <h5>Billing Information</h5>
+                        <form id="checkout-form">
+                            <div class="input-field">
+                                <input type="text" id="name" required placeholder="Enter full name">
+                                <label for="name">Full Name</label>
+                            </div>
+
+                            <div class="input-field">
+                                <input type="email" id="email" required placeholder="Enter email">
+                                <label for="email">Email</label>
+                            </div>
+
+                            <div class="input-field">
+                                <input type="text" id="address" required placeholder="Enter delivery address">
+                                <label for="address">Address</label>
+                            </div>
+
+                            <div class="input-field">
+                                <input type="text" id="phone" required placeholder="Enter phone number">
+                                <label for="phone">Phone</label>
+                            </div>
+
+                            <button class="btn indigo darken-4" type="submit">Checkout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<center>
+    <span>
+        <a href="index.html"><button>HOME</button></a>
+    </span>
+</center>
+<!-- JavaScript -->
+<script src="checkout.js"></script>
+
+<!-- Materialize JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        M.FormSelect.init(document.querySelectorAll('select'));
+    });
+</script>
+
+</body>
+</html>

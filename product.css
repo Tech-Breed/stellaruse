@@ -58,11 +58,11 @@ main {
 }
 
 .thumbnail {
-    width: 60px;              /* Adjust size */
+    width: 60px;   /* Adjust size */
     height: 60px;
     cursor: pointer;
     border: 2px solid transparent; /* Default border */
-    border-radius: 8px;       /* Rounded corners */
+    border-radius: 8px; /* Rounded corners */
     transition: all 0.3s ease;
 }
 

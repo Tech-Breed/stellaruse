@@ -5,17 +5,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalItemsDisplay = document.getElementById("total-items");
     const totalPriceDisplay = document.getElementById("total-price");
     const cartCount = document.getElementById("cart-count");
+    const checkoutBtn = document.querySelector(".checkout-btn");
 
     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
     function updateCartDisplay() {
-        cartItemsContainer.innerHTML = ""; // ✅ Clear previous cart items
+        cartItemsContainer.innerHTML = ""; 
+        
+        // Clear previous cart items
         let totalItems = 0;
         let totalPrice = 0;
 
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-            updateCartCount(); // ✅ Ensure cart count resets when cart is empty
+            updateCartCount();
             totalItemsDisplay.textContent = "0";
             totalPriceDisplay.textContent = "₦0.00";
             return;
@@ -59,12 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
         const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-        // ✅ Update all cart count elements, including those in the navbar
         document.querySelectorAll("#cart-count, .cart-count").forEach(el => {
             el.textContent = totalItems;
         });
 
-        // ✅ Add animation when cart count updates
         if (cartCount) {
             cartCount.classList.add("bump");
             setTimeout(() => cartCount.classList.remove("bump"), 300);
@@ -74,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cartItemsContainer.addEventListener("click", function (e) {
         const index = e.target.dataset.index;
 
-        if (!cart[index]) return; // ✅ Prevents errors when modifying removed items
+        if (!cart[index]) return;
 
         if (e.target.classList.contains("increase")) {
             cart[index].quantity++;
@@ -90,19 +91,21 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCartDisplay();
     });
 
+    // Redirect to Checkout with Cart Data
+    checkoutBtn.addEventListener("click", function () {
+        sessionStorage.setItem("cart", JSON.stringify(cart)); // Ensures cart data is saved
+        window.location.href = "checkout.html"; // Redirects to checkout page
+    });
+
     updateCartDisplay();
-    updateCartCount(); // ✅ Update cart count on page load
+    updateCartCount();
 });
 
-// ✅ Ensure function is available globally
 window.updateCartCount = function () {
     const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
     const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-    // ✅ Update all cart count elements, including those in the navbar
     document.querySelectorAll("#cart-count, .cart-count").forEach(el => {
         el.textContent = totalItems;
     });
 };
-
-

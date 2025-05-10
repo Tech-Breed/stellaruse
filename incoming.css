@@ -1,5 +1,4 @@
-/* RESET STYLES
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* RESET STYLES */
 @font-face {
     font-family: "frankblack_rough";
     src: url("https://assets.codepen.io/162656/frank-blackrough-webfont.woff2")
@@ -62,8 +61,7 @@
   }
   
   
-  /* MAIN STYLES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  /* MAIN STYLES */
   .grid {
     width: 100%;
     margin: auto;
@@ -104,8 +102,7 @@
   }
   
   
-  /* LOTTIE PLAYERS STYLES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  /* LOTTIE PLAYERS STYLES*/
   .arrow {
     position: absolute;
     right: 0;
@@ -125,8 +122,7 @@
   }
   
   
-  /* MQ STYLES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  /* MQ STYLES */
   @media (min-width: 768px) {
     .under-construction {
       width: 500px;
@@ -186,8 +182,7 @@
   }
   
   
-  /* FOOTER STYLES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  /* FOOTER STYLES */
   .page-footer {
     position: fixed;
     right: 15px;

@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ Product Page Loaded");
+    console.log("Product Page Loaded");
 
     const productData = JSON.parse(sessionStorage.getItem("selectedProduct"));
 
     if (!productData) {
-        console.error("❌ No product data found!");
+        console.error(" No product data found!");
 
         // ✅ Fix: Redirect only if NOT already on index.html
         if (!window.location.pathname.includes("index.html")) {
@@ -14,9 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    console.log("📢 Loaded Product:", productData);
+    console.log("Loaded Product:", productData);
 
-    // ✅ Update main product details dynamically
+    // Update main product details dynamically
     const mainImage = document.getElementById("main-product-image");
     mainImage.src = productData.image;
     document.getElementById("product-category").textContent = productData.category;
@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("current-price").textContent = `₦${productData.price.toFixed(2)}`;
     document.getElementById("discount-badge").textContent = `-${productData.discount}%`;
 
-    // ✅ Calculate Original Price
+    // Calculate Original Price
     const originalPrice = (productData.price / (1 - productData.discount / 100)).toFixed(2);
     document.getElementById("original-price").textContent = `₦${originalPrice}`;
 
     console.log("✅ Product Details Updated Successfully");
 
-    // ✅ Load Thumbnails
+    //  Load Thumbnails
     const thumbnailContainer = document.querySelector(".thumbnail-container");
     thumbnailContainer.innerHTML = "";
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
             thumbnail.src = imgSrc;
             thumbnail.classList.add("thumbnail");
 
-            // ✅ On Click - Update Main Image
+            // On Click - Update Main Image
             thumbnail.addEventListener("click", function () {
                 mainImage.src = imgSrc;
             });
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("⚠️ No thumbnails found.");
     }
 
-    // ✅ Quantity Update (Carry forward quantity from previous page)
+    //  Quantity Update (Carry forward quantity from previous page)
     let quantity = productData.quantity || 1; // Default to 1 if no quantity stored
     const quantityDisplay = document.querySelector(".number");
     const increaseBtn = document.querySelector(".increase");
@@ -75,19 +75,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ✅ Size Selection Logic
+    //  Size Selection Logic
     const sizeOptions = document.querySelectorAll(".size-option");
     let selectedSize = "";
 
     sizeOptions.forEach((size) => {
         size.addEventListener("click", function () {
-            // ✅ Remove active class from all sizes
+            //  Remove active class from all sizes
             sizeOptions.forEach((s) => s.classList.remove("active"));
 
-            // ✅ Add active class to clicked size
+            // Add active class to clicked size
             this.classList.add("active");
 
-            // ✅ Store selected size in sessionStorage
+            // Store selected size in sessionStorage
             selectedSize = this.textContent;
             sessionStorage.setItem("selectedSize", selectedSize);
 
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // ✅ Retrieve stored size selection (if available)
+    // Retrieve stored size selection (if available)
     const storedSize = sessionStorage.getItem("selectedSize");
     if (storedSize) {
         sizeOptions.forEach((size) => {
@@ -105,46 +105,53 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Add to Cart Functionality (Updated)
+    //  Add to Cart Functionality (Updated)
     document.querySelector(".add-to-cart").addEventListener("click", function () {
         const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
 
-        // ✅ Get the product details again
+        //  Get the product details again
         const currentProductData = JSON.parse(sessionStorage.getItem("selectedProduct"));
 
         const cartItem = {
-            id: currentProductData.id, // ✅ Ensure unique identification
+            id: currentProductData.id, 
+            
+            //  Ensure unique identification
             name: currentProductData.name,
             category: currentProductData.category,
-            image: currentProductData.image, // ✅ Only main image
+            image: currentProductData.image, 
+            
+            // Only main image
             price: currentProductData.price,
-            quantity: quantity, // ✅ User-selected quantity
-            size: selectedSize || "M", // ✅ Default to "M" if no size selected
+            quantity: quantity, 
+            
+            //  User-selected quantity
+            size: selectedSize || "M", 
+            // Default to "M" if no size selected
             description: currentProductData.description || "Luxury crafted sneakers for daily wear.",
         };
 
-        // ✅ Check if an item with the same ID **AND** size already exists
+        // Check if an item with the same ID **AND** size already exists
         const existingItemIndex = cartItems.findIndex(item => item.id === cartItem.id && item.size === cartItem.size);
 
         if (existingItemIndex !== -1) {
-            // ✅ If product with the same size already exists, update quantity
+            // If product with the same size already exists, update quantity
             cartItems[existingItemIndex].quantity += quantity;
         } else {
-            // ✅ If it's a new product (or same product with different size), add it as new
+            //  If it's a new product (or same product with different size), add it as new
             cartItems.push(cartItem);
         }
 
-        // ✅ Update sessionStorage
+        //  Update sessionStorage
         sessionStorage.setItem("cart", JSON.stringify(cartItems));
 
-        // ✅ Update Cart Count Immediately
+        // Update Cart Count Immediately
         updateCartCount();
 
         console.log("🛒 Product added to cart:", cartItem);
         showPopup("✅ Added to cart successfully!");
     });
 
-    // ✅ Function to Show Custom Popup
+    // Function to Show Custom Popup
     function showPopup(message) {
         const popup = document.getElementById("custom-popup");
         const popupMessage = document.getElementById("popup-message");
@@ -158,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // ✅ Function to Update Cart Count
+    // Function to Update Cart Count
     function updateCartCount() {
         const cartItems = JSON.parse(sessionStorage.getItem("cart")) || [];
         const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
@@ -166,11 +173,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cartCount.textContent = totalItems;
 
-        // ✅ Add animation when cart count updates
+        // Add animation when cart count updates
         cartCount.classList.add("bump");
         setTimeout(() => cartCount.classList.remove("bump"), 300);
     }
 
-    // ✅ Update Cart Count on Page Load
+    // Update Cart Count on Page Load
     updateCartCount();
 });
